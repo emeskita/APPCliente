@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @cliente.nome %>
+</p>
+
+<p>
+  <strong>Ultimo nome:</strong>
+  <%= @cliente.ultimo_nome %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @cliente.cpf %>
+</p>
+
+<p>
+  <strong>Data nascimento:</strong>
+  <%= @cliente.data_nascimento %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @cliente.endereco %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @cliente.numero %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @cliente.cidade %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @cliente.estado %>
+</p>
+
+<p>
+  <strong>Complemento:</strong>
+  <%= @cliente.complemento %>
+</p>
+
+<p>
+  <strong>Cep:</strong>
+  <%= @cliente.cep %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @cliente.password_digest %>
+</p>
+
+<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
+<%= link_to 'Back', clientes_path %>
