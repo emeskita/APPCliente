@@ -1,10 +1,16 @@
 class ClientesController < ApplicationController
+  require 'correios-cep'
+
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
 
   # GET /clientes
   # GET /clientes.json
   def index
-    @clientes = Cliente.all
+    if logged_in?
+      @clientes = Cliente.all
+    else
+      redirect_to "/login"
+    end
   end
 
   # GET /clientes/1
@@ -19,6 +25,7 @@ class ClientesController < ApplicationController
 
   # GET /clientes/1/edit
   def edit
+    
   end
 
   # POST /clientes
@@ -60,15 +67,30 @@ class ClientesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def buscacep
+      # With "get" instance method
+     
+      finder = Correios::CEP::AddressFinder.new
+      address = finder.get(params[:cep])
+      
+      respond_to do |format|
+        format.json  { render :json => address }
+      end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cliente
-      @cliente = Cliente.find(params[:id])
+      if logged_in?
+        @cliente = Cliente.find(params[:id])
+      else
+        redirect_to "/login"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_params
-      params.require(:cliente).permit(:nome, :ultimo_nome, :cpf, :data_nascimento, :endereco, :numero, :cidade, :estado, :complemento, :cep, :password_digest)
+      params.require(:cliente).permit(:nome, :ultimo_nome, :email, :cpf, :data_nascimento, :endereco, :numero, :bairro, :cidade, :estado, :complemento, :cep, :password, :password_confirmation)
     end
 end

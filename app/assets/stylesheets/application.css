@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ 
+ .error {
+     
+     border-color: red;
+ }
+ 
+ .help-inline{
+     color:red;
+ }

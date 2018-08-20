@@ -1,72 +1,118 @@
-<%= form_with(model: cliente, local: true) do |form| %>
-  <% if cliente.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
 
-      <ul>
-      <% cliente.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ultimo_nome %>
-    <%= form.text_field :ultimo_nome %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf %>
-  </div>
-
-  <div class="field">
-    <%= form.label :data_nascimento %>
-    <%= form.date_select :data_nascimento %>
-  </div>
-
-  <div class="field">
-    <%= form.label :endereco %>
-    <%= form.text_field :endereco %>
-  </div>
-
-  <div class="field">
-    <%= form.label :numero %>
-    <%= form.number_field :numero %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cidade %>
-    <%= form.text_field :cidade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :estado %>
-    <%= form.text_field :estado %>
-  </div>
-
-  <div class="field">
-    <%= form.label :complemento %>
-    <%= form.text_field :complemento %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cep %>
-    <%= form.text_field :cep %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+          <%= form_with(model: cliente, local: true) do |f| %>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    
+                    <%= f.text_field :nome, class: 'form-control', placeholder: "Nome", autofocus: true, required: true %>
+                     <label for="cliente[nome]">nome</label>
+                   
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <%= f.text_field :ultimo_nome, class: 'form-control', placeholder: "Último nome", required: true %>
+                     <label for="nome">Último nome</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <%= f.email_field :email, class: 'form-control', placeholder: "Email", required: true %>
+                 <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <%= f.text_field :cpf, class: 'form-control', placeholder: "CPF", required: true %>
+                    <label for="cpf">CPF</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <%= f.text_field :data_nascimento, class: 'form-control', placeholder: "dd/mm/aaaa", required: true %>
+                     <label for="data_nascimento">Data Nascimento</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-4">
+                  <div class="form-label-group">
+                    <%= f.text_field :cep, class: 'form-control', placeholder: "99999-999", required: true %>
+                     <label for="cep">Cep</label>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="form-label-group">
+                    <%= f.text_field :endereco, class: 'form-control', placeholder: "Rua/Av...", required: true %>
+                     <label for="nome">Endereco</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-4">
+                  <div class="form-label-group">
+                    <%= f.text_field :numero, class: 'form-control', placeholder: "Número", required: true %>
+                     <label for="numero">Número</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-label-group">
+                    <%= f.text_field :complemento, class: 'form-control', placeholder: "complemento", required: true %>
+                     <label for="complemento">Complemento</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-label-group">
+                    <%= f.text_field :bairro, class: 'form-control', placeholder: "bairro", required: true %>
+                     <label for="bairro">Bairro</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <%= f.text_field :cidade, class: 'form-control', placeholder: "cidade", required: true %>
+                     <label for="cidade">Cidade</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <%= f.text_field :estado, class: 'form-control', placeholder: "Estado", required: true %>
+                     <label for="estado">Estado</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <%= f.password_field :password, class: 'form-control', required: true %>
+                     <label for="password">password</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <%= f.label :password_confirmation %>  
+                    <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <%= f.submit "Registrar", class: "btn btn-primary" %>
+          <% end %>
+          <div id="wait" style="display: none;">
+             Carregando...
+          </div>
+          

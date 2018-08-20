@@ -7,6 +7,14 @@ ruby '2.4.1'
 gem 'rails', '~> 5.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+# bcrypt to encrypt password
+gem 'bcrypt',         '3.1.12'
+
+gem 'jquery-rails'
+# responders
+gem "responders"
+# correios busca cep
+gem 'correios-cep'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
